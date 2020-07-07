@@ -23,6 +23,7 @@ const indexRoute = require('./routes/index-route');
 const productRoute = require('./routes/product-route');
 const customerRoute = require('./routes/customer-route');
 const orderRoute = require('./routes/order-route');
+const cors = require('corrs');
 
 //middleware Conversor do conteudo json da requisição, podendo atuar na codificação de urls também
 app.use(bodyParser.json({
@@ -32,6 +33,7 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 
+app.use(cors())
 // Habilita CORS
 app.use(function(req, res, next){
     res.header('Acess-Control-Allow-Origin','*');
